@@ -1,0 +1,19 @@
+---
+name: "project_a"
+version: "1.0.0"
+config-version: 2
+
+profile: "test"
+
+macro-paths: ["macros"]
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+packages-install-path: "{{ env_var('HOME') }}/.dbt_packages/project-a/"
+
+clean-targets:
+  - "target"
+
+flags:
+  send_anonymous_usage_stats: false

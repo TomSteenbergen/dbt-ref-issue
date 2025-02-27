@@ -1,0 +1,12 @@
+test:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: test
+      password: test
+      port: 5432
+      dbname: test
+      schema: project_
+      threads: 1

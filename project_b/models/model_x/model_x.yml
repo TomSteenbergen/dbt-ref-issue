@@ -1,0 +1,4 @@
+models:
+  - name: model_x
+    config:
+      schema: b
