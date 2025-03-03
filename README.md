@@ -99,7 +99,7 @@ package name if it is not explicitly supplied to `ref`:
 Adding this macro in `project_downstream/macros/ref.sql` and running `dbt compile` again 
 does get rid of the cyclic dependency error. However, it does introduce a new issue:
 
-```bash
+```
 Runtime Error
   Compilation Error in test unique_model_x_a (models/model_x/model_x.yml)
     dbt was unable to infer all dependencies for the model "unique_model_x_a".
