@@ -1,0 +1,9 @@
+models:
+  - name: model_y
+    config:
+      schema: upstream
+    columns:
+      - name: a
+        data_type: varchar
+        data_tests:
+          - unique

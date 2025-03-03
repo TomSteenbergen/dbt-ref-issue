@@ -1,4 +1,0 @@
-models:
-  - name: model_y
-    config:
-      schema: a
