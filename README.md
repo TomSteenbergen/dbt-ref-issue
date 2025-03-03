@@ -1,7 +1,7 @@
 # dbt-ref-issue
 
 Minimal example showcasing the issue when using `ref` with a duplicate model name in an
-imported project. 
+imported project.
 
 ## Problem
 
@@ -114,6 +114,6 @@ Runtime Error
 
 ```
 
-This error is also thrown when using a different data tests, e.g. `accepted_values`. The
-only workaround I have found so far is removing the test from 
+This error is also thrown when using a different data test, e.g. `accepted_values`. The
+only workaround I have found so far is removing the data test from 
 `project_upstream.model_x`. For obvious reasons, this is not a desirable workaround.
