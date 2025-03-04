@@ -53,11 +53,15 @@ RuntimeError: Found a cycle: model.project_downstream.model_x --> model.project_
 
 dbt incorrectly thinks that `project_upstream.model_y` is dependent on 
 `project_downstream.model_x` instead of `project_upstream.model_x`, resulting in a 
-cyclic dependency. I would have expected that dbt would, when using `ref` with a single 
-argument in `project_upstream.model_y`, reference the dbt model of _the same project_, 
-i.e. `project_upstream.model_x`, regardless of whether we are running dbt from 
+cyclic dependency since `project_downstream.model_x` references 
+`project_upstream.model_y`. 
+
+I would have expected that dbt, when using `ref` with a single argument in 
+`project_upstream.model_y`, references the dbt model of _the same project_, i.e. 
+`project_upstream.model_x`, regardless of whether we are running dbt from 
 `project_upstream` or `project_downstream`. Instead, it seems to default to the project 
-from which you are running `dbt`.
+from which you are running `dbt`, even though `project_downstream` is not listed in 
+`packages.yml` as a dependency of `project_upstream`.
 
 ## Tried workarounds
 
