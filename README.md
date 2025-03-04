@@ -10,7 +10,7 @@ when referencing a model with a name that also exists in the current dbt project
 
 ## Context
 
-In our company we have multiple dbt projects. The dbt projects of our central data
+In our organization we have multiple dbt projects. The dbt projects of our central data
 warehouse team is oftentimes imported as a package in downstream dbt projects. These
 downstream dbt projects build their dbt models on top of their dbt models. 
 
@@ -71,7 +71,7 @@ You could always use the package name argument in `project_upstream`, even thoug
 not importing any project (i.e. always use `ref("project_upstream", <model_name>)`). 
 This would prevent the cyclic error in downstream dbt projects that contain a dbt model
 with the same name. However, this workaround is not always desirable or even possible
-in case the dbt project you are importing is not managed by your team/company.
+in case the dbt project you are importing is not managed by your team/organization.
 
 ### Override the `ref` macro
 
@@ -119,5 +119,8 @@ Runtime Error
 ```
 
 This error is also thrown when using a different data test, e.g. `accepted_values`. The
-only workaround I have found so far is removing the data test from 
-`project_upstream.model_x`. For obvious reasons, this is not a desirable workaround.
+suggested fix to add this `-- depends_on` comment is not desirable as these would need
+to be added to the dbt models of the upstream project which can be owned by a different
+team/organization. Another workaround I have found so far is removing the data test from 
+`project_upstream.model_x`. For obvious reasons, this is also not a desirable 
+workaround.
